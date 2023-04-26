@@ -1,28 +1,28 @@
 #include <stdio.h>
 #define max 15
 int dq[max],e,f=0,r=-1;
-void insertf(int p)
+void insertf(int s)
 {
-		dq[--f]=p;
+		dq[--f]=s;
 }
 
-void insertr(int p)
+void insertr(int s)
 {
-	dq[++r]=p;
+	dq[++r]=s;
 }
 int delf()
 {
-	int x=0;
+	int s=0;
 	if(f==0 && r==-1)
 	  printf("Empty\n");
 
 	else
-    x=dq[f++];
-  return x;
+    s=dq[f++];
+  return s;
 }
 int delr()
 {
-	int x;
+	int s;
 	if(f==0 && r==-1)
 	{
     printf("Invalid\n");
@@ -30,28 +30,29 @@ int delr()
 	}
 	else if(f==r)
 	{
-		x=dq[r];
+		s=dq[r];
 		f=0;r=-1;
 		return x;
 	}
 	else
 	{
-		x=dq[r--];
-		return x;
+		s=dq[r--];
+		return s;
 	}
 }
 void display()
 {
-	for(int i=f;i<=r;i++)
+	int i;
+	for(i=f;i<=r;i++)
 	printf("%3d",dq[i]);
 }
 void isfull()
 {
-  (r==max-1 && f==0)?	printf("Full"):	printf("Not Full");
+  (r==max-1 && f==0)?printf("Full"):printf("Not Full");
 }
 void isempty()
 {
-	(f==0 && r==-1)?printf("Empty"):printf("Not Empty");
+   (f==0 && r==-1)?printf("Empty"):printf("Not Empty");
 }
 void main()
 {
