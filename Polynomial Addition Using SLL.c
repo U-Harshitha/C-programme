@@ -1,8 +1,4 @@
 
-cse-d students <csedstudents2021@gmail.com>
-14:14 (4 hours ago)
-to me
-
 #include<stdio.h>
 #include<stdlib.h>
 
