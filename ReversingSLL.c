@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include <stdlib.h>
+//Reversing a SLL
 struct node{
 int x;
 struct node * next;
@@ -31,22 +32,31 @@ void displayF()
     else
     {
         temp=first;
-        while(temp!=NULL){
-          printf("%3d",temp->x);
-          temp=temp->next;
+        do
+        {
+            printf("%3d",temp->x);
+            temp=temp->next;
+        }while(temp!=NULL);
+    }
+}
+void reverse()
+{
+        struct node* a,*b,*c,*f;
+        a=first;
+        f=first;
+        b=a->next;
+        while(a!=last){
+              c=b->next;
+              b->next=a;
+              a=b;
+              b=c;
         }
-    }
+        first->next=NULL;
+        first=last;
+        last=f;
+        printf("Done");
 }
-struct node* reverse(struct node *f){
-    struct node *prev = NULL, *curr = f, *next;
-    while(curr != NULL){
-        next = curr->next;
-        curr->next = prev;
-        prev = curr;
-        curr = next;
-    }
-    return prev;
-}
+
 int main()
 {
     int x,y,ch;
@@ -58,8 +68,7 @@ int main()
             case 1: first=create(first);
                     break;
             case 2: displayF();break;
-            case 3: first = reverse(first);
-                    printf("Reversed\n"); break;
+            case 3: reverse();
         }
     }while(x!=0);
 }
