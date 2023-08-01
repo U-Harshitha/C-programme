@@ -1,7 +1,4 @@
 #include <stdio.h>
-
-// Removed unnecessary global variables `status` and `stack`, as they were not used in the code.
-
 int graph[25][25] = {0};
 int visit[25][25] = {0};
 int queue[25], f = 0, r = -1;
@@ -13,8 +10,6 @@ void enque(int k) {
 int deque() {
     return queue[f++];
 }
-
-// Simplified the `isempty()` function by using a ternary operator.
 int isempty() {
     return f > r ? 0 : 1;
 }
@@ -35,7 +30,6 @@ int main() {
     while (isempty()) {
         h = deque();
         for (i = 0; i < n; i++) {
-            // Removed the check for `status` array, as it was not required.
             if (graph[h][i] && !visit[h][i]) {
                 enque(i);
                 visit[h][i] = 1;
